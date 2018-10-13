@@ -1,3 +1,3 @@
-SELECT id, username
-FROM users
-ORDER BY id;
+SELECT u.id, u.username
+FROM users AS u
+ORDER BY u.id;

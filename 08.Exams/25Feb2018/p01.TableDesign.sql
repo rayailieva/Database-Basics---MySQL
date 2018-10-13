@@ -4,7 +4,7 @@ USE buhtig;
 CREATE TABLE users
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) UNIQUE NOT NULL,
+    username VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL
 );
@@ -15,13 +15,14 @@ CREATE TABLE repositories
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE repositories_contributors (
-    repository_id INT NOT NULL,
-    contributor_id INT NOT NULL,
-    CONSTRAINT fk_repositories_contributors_repositories FOREIGN KEY (repository_id)
-        REFERENCES repositories (id),
-    CONSTRAINT fk_repositories_contributors_users FOREIGN KEY (contributor_id)
-        REFERENCES users (id)
+CREATE TABLE repositories_contributors
+(
+	repository_id INT,
+    contributor_id INT,
+    CONSTRAINT fk_repositories_contributors_repositories FOREIGN KEY(repository_id)
+		REFERENCES repositories(id),
+    CONSTRAINT fk_repositories_contributors_users FOREIGN KEY(contributor_id)
+		REFERENCES users(id)
 );
 
 CREATE TABLE issues
@@ -416,7 +417,3 @@ VALUES
 UPDATE files
 SET parent_id = 42
 WHERE id = 5;
-
-
-
-    
