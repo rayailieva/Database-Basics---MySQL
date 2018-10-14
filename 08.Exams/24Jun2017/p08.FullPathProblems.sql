@@ -1,8 +1,8 @@
 SELECT p.id,
-		CONCAT_WS(' - ', cat.name, con.name, p.name) AS 'full_path'
+	   CONCAT_WS(' - ', ca.name, co.name, p.name) AS 'full_path'
 FROM problems AS p
-JOIN contests AS con
-	ON p.contest_id = con.id
-JOIN categories AS cat
-	ON con.category_id = cat.id
+JOIN contests AS co
+	ON p.contest_id = co.id
+JOIN categories AS ca
+	ON co.category_id = ca.id
 ORDER BY p.id;

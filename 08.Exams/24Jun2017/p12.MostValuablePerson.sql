@@ -9,6 +9,5 @@ WHERE u.id =
 	(SELECT uc.user_id
     FROM users_contests AS uc
     GROUP BY uc.user_id
-	ORDER BY COUNT(uc.contest_id) DESC
-	LIMIT 1)
+    ORDER BY COUNT(uc.contest_id) DESC LIMIT 1)
 ORDER BY s.id DESC;
