@@ -6,4 +6,3 @@ FROM
     commits AS c ON r.id = c.repository_id
 GROUP BY r.id
 ORDER BY users DESC , r.id;
-
